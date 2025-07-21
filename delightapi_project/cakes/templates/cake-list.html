@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Cakes</title>
+  <style>
+    .cake {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .cake img {
+      max-width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🍰 Cake List</h1>
+  {% for cake in cakes %}
+    <div class="cake">
+      <h2>{{ cake.cakeName }}</h2>
+      <p>{{ cake.cakeDescription }}</p>
+      <img src="{{ cake.cakeImage.url }}" alt="{{ cake.cakeName }}">
+      <p><strong>Tags:</strong> {{ cake.cakeTags|join:", " }}</p>
+      <p><strong>Ingredients:</strong> {{ cake.cakeIngredients|join:", " }}</p>
+      <p><strong>Egg Options:</strong> {{ cake.cakeEggOptions|join:", " }}</p>
+    </div>
+  {% endfor %}
+</body>
+</html>
